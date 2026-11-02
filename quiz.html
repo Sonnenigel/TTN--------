@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Рассчитать стоимость отопления под ваш дом — квиз за 2 минуты | Терратерм</title>
+<meta name="description" content="5 вопросов — и вы получите предварительную вилку стоимости отопления с учётом площади, типа системы и источника тепла. Точную смету инженер составит после замера.">
+<link rel="canonical" href="https://terraterm.ru/quiz.html">
+<meta name="theme-color" content="#0F1419">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<div class="topbar"><div class="container topbar__inner"><span class="topbar__tag">Бесплатный расчёт · без навязывания</span><span>Инженер свяжется в течение рабочего дня</span></div></div>
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="logo"><span class="logo__mark" aria-hidden="true">TRM</span><span>ТЕРРАТЕРМ<span class="logo__sub">инженерные системы</span></span></a>
+    <nav class="nav" id="nav" aria-label="Навигация">
+      <div class="nav__item"><a href="/" class="nav__link">← На главную</a></div>
+      <div class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></div>
+    </nav>
+    <div class="header__contact">
+      <div class="phone-block"><a href="tel:+74951234567" class="phone">+7 (495) 123-45-67</a><span class="phone-sub">Пн–Сб · 09:00–20:00</span></div>
+      <button class="burger" id="burger" aria-label="Меню" aria-controls="nav" aria-expanded="false" type="button"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<nav class="breadcrumbs" aria-label="Хлебные крошки"><div class="container"><ol>
+  <li><a href="/">Главная</a><span>/</span></li>
+  <li aria-current="page">Квиз-калькулятор</li>
+</ol></div></nav>
+
+<section class="quiz-page">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div class="hero__kicker" style="display:inline-flex;">5 вопросов · 2 минуты</div>
+      <h1 style="font-size:clamp(28px,4vw,42px); margin-bottom:16px;">Рассчитайте стоимость отопления под ваш дом</h1>
+      <p style="font-size:17px; color:var(--slate-2); max-width:640px; margin:0 auto;">Предварительная вилка стоимости с учётом площади, типа системы и источника тепла. Точную смету инженер составит после замера.</p>
+    </div>
+
+    <div class="quiz-container" id="quiz">
+      <div class="quiz-progress" aria-hidden="true">
+        <div class="quiz-progress__bar done" data-step="1"></div>
+        <div class="quiz-progress__bar" data-step="2"></div>
+        <div class="quiz-progress__bar" data-step="3"></div>
+        <div class="quiz-progress__bar" data-step="4"></div>
+        <div class="quiz-progress__bar" data-step="5"></div>
+      </div>
+
+      <!-- ШАГ 1 -->
+      <div class="quiz-step active" data-step="1">
+        <div class="quiz-step__counter">Шаг 1 из 5</div>
+        <h2>Какая площадь вашего дома?</h2>
+        <div class="quiz-options">
+          <label class="quiz-option"><input type="radio" name="area" value="80" data-label="до 100 м²"><span class="quiz-option__mark"></span>до 100 м²</label>
+          <label class="quiz-option"><input type="radio" name="area" value="150" data-label="100–200 м²"><span class="quiz-option__mark"></span>100–200 м²</label>
+          <label class="quiz-option"><input type="radio" name="area" value="250" data-label="200–300 м²"><span class="quiz-option__mark"></span>200–300 м²</label>
+          <label class="quiz-option"><input type="radio" name="area" value="350" data-label="300+ м²"><span class="quiz-option__mark"></span>300+ м²</label>
+        </div>
+        <div class="quiz-nav"><button class="btn btn--primary btn--block" data-next type="button">Далее →</button></div>
+      </div>
+
+      <!-- ШАГ 2 -->
+      <div class="quiz-step" data-step="2">
+        <div class="quiz-step__counter">Шаг 2 из 5</div>
+        <h2>Какой тип отопления вам ближе?</h2>
+        <div class="quiz-options">
+          <label class="quiz-option"><input type="radio" name="system" value="rad" data-label="Радиаторы"><span class="quiz-option__mark"></span>Радиаторы</label>
+          <label class="quiz-option"><input type="radio" name="system" value="floor" data-label="Тёплый пол"><span class="quiz-option__mark"></span>Тёплый пол</label>
+          <label class="quiz-option"><input type="radio" name="system" value="both" data-label="Комбинированная"><span class="quiz-option__mark"></span>Комбинированная схема</label>
+          <label class="quiz-option"><input type="radio" name="system" value="unknown" data-label="Не определился"><span class="quiz-option__mark"></span>Пока не определился</label>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn--outline" data-prev type="button">← Назад</button>
+          <button class="btn btn--primary" data-next type="button">Далее →</button>
+        </div>
+      </div>
+
+      <!-- ШАГ 3 -->
+      <div class="quiz-step" data-step="3">
+        <div class="quiz-step__counter">Шаг 3 из 5</div>
+        <h2>Какой источник тепла рассматриваете?</h2>
+        <div class="quiz-options">
+          <label class="quiz-option"><input type="radio" name="fuel" value="gas" data-label="Газ"><span class="quiz-option__mark"></span>Газ</label>
+          <label class="quiz-option"><input type="radio" name="fuel" value="electric" data-label="Электричество"><span class="quiz-option__mark"></span>Электричество</label>
+          <label class="quiz-option"><input type="radio" name="fuel" value="tt" data-label="Твёрдое топливо"><span class="quiz-option__mark"></span>Твёрдое топливо</label>
+          <label class="quiz-option"><input type="radio" name="fuel" value="hp" data-label="Тепловой насос"><span class="quiz-option__mark"></span>Тепловой насос</label>
+          <label class="quiz-option"><input type="radio" name="fuel" value="unknown" data-label="Нужна помощь с выбором"><span class="quiz-option__mark"></span>Нужна помощь с выбором</label>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn--outline" data-prev type="button">← Назад</button>
+          <button class="btn btn--primary" data-next type="button">Далее →</button>
+        </div>
+      </div>
+
+      <!-- ШАГ 4 -->
+      <div class="quiz-step" data-step="4">
+        <div class="quiz-step__counter">Шаг 4 из 5</div>
+        <h2>Этажность и материал стен дома?</h2>
+        <div class="quiz-options">
+          <label class="quiz-option"><input type="radio" name="walls" value="1-gas" data-label="1 этаж, газобетон"><span class="quiz-option__mark"></span>1 этаж · газобетон</label>
+          <label class="quiz-option"><input type="radio" name="walls" value="2-gas" data-label="2 этажа, газобетон"><span class="quiz-option__mark"></span>2 этажа · газобетон</label>
+          <label class="quiz-option"><input type="radio" name="walls" value="2-brick" data-label="2 этажа, кирпич"><span class="quiz-option__mark"></span>2 этажа · кирпич</label>
+          <label class="quiz-option"><input type="radio" name="walls" value="2-wood" data-label="2 этажа, дерево/каркас"><span class="quiz-option__mark"></span>2 этажа · дерево / каркас</label>
+          <label class="quiz-option"><input type="radio" name="walls" value="3-plus" data-label="3+ этажа"><span class="quiz-option__mark"></span>3+ этажа</label>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn--outline" data-prev type="button">← Назад</button>
+          <button class="btn btn--primary" data-next type="button">Далее →</button>
+        </div>
+      </div>
+
+      <!-- ШАГ 5 -->
+      <div class="quiz-step" data-step="5">
+        <div class="quiz-step__counter">Шаг 5 из 5</div>
+        <h2>Куда отправить расчёт?</h2>
+        <div style="display:grid; gap:12px; margin-bottom:20px;">
+          <label for="qName" class="visually-hidden">Имя</label>
+          <input type="text" id="qName" placeholder="Ваше имя" autocomplete="given-name" style="width:100%; padding:14px 16px; font-size:16px; border:2px solid var(--line); border-radius:var(--radius); min-height:48px;" required>
+          <label for="qPhone" class="visually-hidden">Телефон</label>
+          <input type="tel" id="qPhone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" style="width:100%; padding:14px 16px; font-size:16px; border:2px solid var(--line); border-radius:var(--radius); min-height:48px;" required>
+          <label for="qEmail" class="visually-hidden">Email</label>
+          <input type="email" id="qEmail" placeholder="Email (необязательно)" autocomplete="email" style="width:100%; padding:14px 16px; font-size:16px; border:2px solid var(--line); border-radius:var(--radius); min-height:48px;">
+        </div>
+        <div class="quiz-nav">
+          <button class="btn btn--outline" data-prev type="button">← Назад</button>
+          <button class="btn btn--primary" id="quizSubmit" type="button">Получить расчёт</button>
+        </div>
+        <p style="font-size:12px; color:var(--muted); margin-top:16px; line-height:1.5;">Нажимая кнопку, вы соглашаетесь с <a href="soglasie.html">согласием</a> и <a href="policy.html">политикой</a>.</p>
+      </div>
+
+      <!-- РЕЗУЛЬТАТ -->
+      <div class="quiz-step" data-step="result">
+        <div class="quiz-result">
+          <div class="label">Предварительная стоимость</div>
+          <div class="range" id="resultRange">450 000 – 620 000 ₽</div>
+          <p id="resultText">Расчёт отправлен на ваш email. Инженер свяжется в течение рабочего дня, уточнит детали и предложит 2–3 варианта.</p>
+          <div class="actions">
+            <a href="portfolio.html" class="btn btn--outline">Посмотреть объекты</a>
+            <a href="tel:+74951234567" class="btn btn--primary">Позвонить инженеру</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer"><div class="container"><div class="footer__reqs"><span>© 2026 ООО «Терратерм» · ИНН 7700000000 · ОГРН 1234567890123</span><span><a href="policy.html">Политика</a> · <a href="soglasie.html">Согласие</a></span></div></div></footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://terraterm.ru/#org","name":"Терратерм","url":"https://terraterm.ru/"},
+{"@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Главная","item":"https://terraterm.ru/"},
+  {"@type":"ListItem","position":2,"name":"Квиз-калькулятор","item":"https://terraterm.ru/quiz.html"}
+]},
+{"@type":"WebApplication","name":"Квиз-калькулятор стоимости отопления","applicationCategory":"UtilityApplication","url":"https://terraterm.ru/quiz.html","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
+]}
+</script>
+<script src="script.js" defer></script>
+</body>
+</html>

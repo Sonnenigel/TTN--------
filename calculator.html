@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор мощности котла и бюджета отопления — Терратерм</title>
+<meta name="description" content="Рассчитайте мощность котла, теплопотери и ориентировочный бюджет отопления дома по методике СП 50.13330. Московский регион.">
+<link rel="canonical" href="https://terraterm.ru/calculator.html">
+<meta name="theme-color" content="#0F1419">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<div class="topbar"><div class="container topbar__inner">
+  <span class="topbar__tag">Расчёт по СП 50.13330 · Московский регион</span>
+  <span>Точный расчёт — после выезда инженера</span>
+</div></div>
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="index.html" class="logo"><span class="logo__mark" aria-hidden="true">TRM</span><span>ТЕРРАТЕРМ<span class="logo__sub">инженерные системы</span></span></a>
+    <nav class="nav" id="nav" aria-label="Навигация">
+      <div class="nav__item"><a href="index.html" class="nav__link">← На главную</a></div>
+      <div class="nav__item"><a href="keys.html" class="nav__link">Кейсы</a></div>
+      <div class="nav__item"><a href="komanda.html" class="nav__link">Команда</a></div>
+    </nav>
+    <div class="header__contact">
+      <div class="phone-block">
+        <a href="tel:+74951234567" class="phone">+7 (495) 123-45-67</a>
+        <span class="phone-sub">Пн–Сб · 09:00–20:00</span>
+      </div>
+      <button class="burger" id="burger" aria-label="Меню" aria-controls="nav" aria-expanded="false" type="button"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<nav class="breadcrumbs" aria-label="Хлебные крошки"><div class="container"><ol>
+  <li><a href="index.html">Главная</a><span>/</span></li>
+  <li aria-current="page">Калькулятор</li>
+</ol></div></nav>
+
+<section class="section" style="padding-top:16px;">
+  <div class="container">
+    <div class="section__head" style="grid-template-columns:1fr;">
+      <div>
+        <div class="section__eyebrow">Инженерный расчёт</div>
+        <h1 style="font-size:clamp(30px,4vw,48px);">Калькулятор мощности и бюджета отопления</h1>
+        <p class="section__lead" style="margin-top:16px; max-width:720px;">
+          Методика: P<sub>котла</sub> = S × q × k, где q — удельные теплопотери (Вт/м²) для Московского региона, k — коэффициент запаса 1,2. Удельные теплопотери зависят от утепления и типа конструкции.
+        </p>
+      </div>
+    </div>
+
+    <div class="calc" id="calcFull">
+      <div class="calc__grid">
+        <div class="calc__form">
+          <div class="calc__field">
+            <label for="area">Площадь дома, м²</label>
+            <div class="val" id="areaVal">150 м²</div>
+            <input type="range" id="area" min="60" max="400" step="10" value="150">
+          </div>
+
+          <div class="calc__field">
+            <label>Тип топлива</label>
+            <div class="calc__chips" id="fuelChips">
+              <button class="calc__chip" data-fuel="gas" aria-pressed="true" type="button">Газ</button>
+              <button class="calc__chip" data-fuel="electric" aria-pressed="false" type="button">Электричество</button>
+              <button class="calc__chip" data-fuel="tt" aria-pressed="false" type="button">Твердотопливный</button>
+              <button class="calc__chip" data-fuel="hp" aria-pressed="false" type="button">Тепловой насос</button>
+            </div>
+          </div>
+
+          <div class="calc__field">
+            <label>Схема отопления</label>
+            <div class="calc__chips" id="systemChips">
+              <button class="calc__chip" data-system="rad" aria-pressed="true" type="button">Радиаторы</button>
+              <button class="calc__chip" data-system="floor" aria-pressed="false" type="button">Тёплый пол</button>
+              <button class="calc__chip" data-system="both" aria-pressed="false" type="button">Комбинированная</button>
+            </div>
+          </div>
+
+          <div class="calc__field">
+            <label>Утепление</label>
+            <div class="calc__chips" id="insulChips">
+              <button class="calc__chip" data-insul="good" aria-pressed="true" type="button">Хорошее (150 мм+)</button>
+              <button class="calc__chip" data-insul="normal" aria-pressed="false" type="button">Среднее</button>
+              <button class="calc__chip" data-insul="weak" aria-pressed="false" type="button">Слабое</button>
+            </div>
+          </div>
+
+          <div class="calc__field">
+            <label>Этажность</label>
+            <div class="calc__chips" id="floorChips">
+              <button class="calc__chip" data-floors="1" aria-pressed="true" type="button">1 этаж</button>
+              <button class="calc__chip" data-floors="2" aria-pressed="false" type="button">2 этажа</button>
+              <button class="calc__chip" data-floors="3" aria-pressed="false" type="button">3+</button>
+            </div>
+          </div>
+
+          <div class="calc__field" style="margin-bottom:0;">
+            <label>Тип разводки</label>
+            <div class="calc__chips" id="pipeChips">
+              <button class="calc__chip" data-pipe="tee" aria-pressed="true" type="button">Тройниковая</button>
+              <button class="calc__chip" data-pipe="collector" aria-pressed="false" type="button">Коллекторная (лучевая)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc__result" id="calcResult" aria-live="polite">
+          <div class="eyebrow">Расчётная мощность котла</div>
+          <div class="power" id="resPower">—</div>
+          <div class="sub" id="resHeat">—</div>
+
+          <ul class="calc__breakdown">
+            <li><span>Оборудование</span><span id="resEquip">—</span></li>
+            <li><span>Материалы</span><span id="resMat">—</span></li>
+            <li><span>Работы</span><span id="resWork">—</span></li>
+            <li><span>Проект и ПНР</span><span id="resProj">—</span></li>
+          </ul>
+
+          <div class="calc__total">
+            <span class="label">Ориентир «под ключ»</span>
+            <span class="value" id="resTotal">—</span>
+          </div>
+
+          <a href="#" class="btn btn--heat btn--block" id="calcCTA">Получить точный расчёт + смету →</a>
+          <div class="calc__disclaimer">
+            Расчёт ориентировочный. Учитывает: Московский регион (t<sub>5</sub> = −25 °C), стандартные теплопотери через ограждающие конструкции. Не заменяет проект по СП 60.13330.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kv-band" style="margin-top:48px;">
+      <div class="kv-band__cell"><div class="k">Методика</div><div class="v">СП 50.13330</div><div class="u">тепловая защита зданий</div></div>
+      <div class="kv-band__cell"><div class="k">Запас мощности</div><div class="v">×1,2</div><div class="u">стандарт для Московского региона</div></div>
+      <div class="kv-band__cell"><div class="k">Температура расчётная</div><div class="v">−25 °C</div><div class="u">t<sub>5</sub> для Москвы</div></div>
+      <div class="kv-band__cell"><div class="k">Погрешность</div><div class="v">±15%</div><div class="u">от проекта с обмерами</div></div>
+    </div>
+
+    <div style="max-width:760px; margin-top:64px;">
+      <h2 style="font-size:28px; margin-bottom:20px;">Как мы уточняем расчёт</h2>
+      <p style="color:var(--slate-2); margin-bottom:16px;">
+        Калькулятор даёт ориентир по формуле P = S × q × k. На реальном объекте инженер учитывает:
+      </p>
+      <ul style="color:var(--slate-2); line-height:1.85; margin-left:22px;">
+        <li>Материал и толщину стен, перекрытий, кровли.</li>
+        <li>Тип и площадь остекления — панорамные окна увеличивают теплопотери на 15–25%.</li>
+        <li>Инфильтрацию через вентиляцию и неплотности.</li>
+        <li>Количество «мостиков холода».</li>
+        <li>Режим эксплуатации: постоянное проживание или дача.</li>
+      </ul>
+      <p style="color:var(--slate-2);">
+        Поэтому цифра из калькулятора — это <strong>нижняя граница бюджета</strong>. Точная смета по проекту обычно на 10–20% выше.
+      </p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer"><div class="container"><div class="footer__reqs">
+  <span>© 2026 ООО «Терратерм» · ИНН 7700000000 · ОГРН 1234567890123</span>
+  <span><a href="policy.html">Политика</a> · <a href="soglasie.html">Согласие</a></span>
+</div></div></footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Organization","@id":"https://terraterm.ru/#org","name":"Терратерм","url":"https://terraterm.ru/","telephone":"+7-495-123-45-67"},
+{"@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Главная","item":"https://terraterm.ru/"},
+  {"@type":"ListItem","position":2,"name":"Калькулятор","item":"https://terraterm.ru/calculator.html"}
+]},
+{"@type":"WebApplication","name":"Калькулятор мощности котла и бюджета отопления","applicationCategory":"UtilityApplication","url":"https://terraterm.ru/calculator.html","offers":{"@type":"Offer","price":"0","priceCurrency":"RUB"}}
+]}
+</script>
+<script src="script.js" defer></script>
+</body>
+</html>

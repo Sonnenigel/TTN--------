@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /policy.html
+Disallow: /soglasie.html
+
+Sitemap: https://terraterm.ru/sitemap.xml
+Host: https://terraterm.ru
